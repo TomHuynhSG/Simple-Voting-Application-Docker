@@ -15,6 +15,11 @@ yum install -y git
 yum install -y docker
 ```
 
+- Start Docker:
+```
+service docker start
+```
+
 - Git clone this repository:
 ```
 git clone https://github.com/TomHuynhSG/simple-voting-application.git
@@ -27,19 +32,69 @@ cd simple-voting-application
 
 ## 🐳 1. Docker Step by Step 
 
-- Will add more explanation later on!
+- Change current directory to vote directory which contains the voting website:
 ```
-cd vote/
+cd vote
+```
+
+- Checkout the Dockerfile of that voting website:
+```
 cat Dockerfile 
-service docker start
-service docker status
+```
+
+- Build a Docker image of voting application:
+```
 docker build . -t voting-app
+```
+
+- Check if the new voting-app is there:
+```
 docker images
+```
+
+- Run a Docker container from the Redis image of DockerHub:
+```
 docker run -d --name=redis redis
+```
+
+- Run a Docker container from the voting app image ➜ The voting website is now live:
+```
+docker run -d -p 8080:80 --link redis:redis voting-app
+```
+
+
+- Run a Docker container from the Postgres image of DockerHub:
+```
 docker run -d --name=db -e POSTGRES_PASSWORD=postgres postgres:9.4
+```
+
+- Change current directory to worker-app directory:
+```
+cd ../worker
+```
+
+- Build a Docker image of worker app:
+```
 docker build . -t worker-app
+```
+
+- Run a Docker container from the worker app image:
+```
 docker run -d --link redis:redis --link db:db worker-app
+```
+
+- Change current directory to result directory which contains the result website:
+```
+cd ../result
+```
+
+- Build a Docker image of result app:
+```
 docker build . -t result-app
+```
+
+- Run a Docker container from the result app image ➜ The result website is now live:
+```
 docker run -d -p 8081:80 --link db:db result-app
 ```
 
@@ -101,6 +156,14 @@ docker-compose up
 ```
 
 - Check if the website is up and running via port 8080 (voting website) and 8081 (result website).
+
+## Screenshots
+
+- Voting page:
+![Voting page](https://i.imgur.com/MHt7PpR.png)
+
+- Result page:
+![Result page](https://i.imgur.com/T0P2mBa.png)
 
 
 ## ⚙️ Architecture 
