@@ -4,21 +4,20 @@ A great sample application for docker & docker compose demonstration!
 Indeed, this is a distributed application running across multiple Docker containers.
 
 ## 0. Installation and Setup 🏗️
------
+
 - To be updated...
 
 ## 1. Docker Step by Step 🐳
------
+
 - To be updated...
 
 ## 2. Docker Compose 🐳 🐳
------
+
 - To be updated...
 
 ### Architecture ⚙️
------
 
-![Architecture diagram](architecture.png)
+![Architecture diagram](https://i.imgur.com/iVphAjP.png)
 
 * A front-end web app in [Python](/vote) or [ASP.NET Core](/vote/dotnet) which lets you vote between two options
 * A [Redis](https://hub.docker.com/_/redis/) or [NATS](https://hub.docker.com/_/nats/) queue which collects new votes
