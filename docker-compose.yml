@@ -1,0 +1,29 @@
+version: "3"
+services:
+  redis:
+    image: redis
+
+  db:
+   image: postgres:9.4
+   environment:
+    POSTGRES_PASSWORD: "postgres"
+
+  vote:
+    image: voting-app
+    ports:
+      - 8080:80
+    links:
+      - redis
+
+  worker:
+    image: worker-app
+    links:
+      - db
+      - redis
+
+  result:
+    image: result-app
+    ports:
+      - 8081:80
+    links:
+      - db
