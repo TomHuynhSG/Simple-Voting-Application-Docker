@@ -157,7 +157,7 @@ docker-compose up
 
 - Check if the website is up and running via port 8080 (voting website) and 8081 (result website).
 
-## Screenshots
+## 🌟 Screenshots
 
 - Voting page:
 ![Voting page](https://i.imgur.com/MHt7PpR.png)
