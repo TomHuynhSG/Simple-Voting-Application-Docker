@@ -5,6 +5,11 @@ Indeed, this is a distributed application running across multiple Docker contain
 
 ## 🏗️ 0. Installation and Setup 
 
+- Make sure the port numbers below as allowed in your host machine for this application:
+    - 80
+    - 8080
+    - 8081
+
 - Install Git:
 ```
 yum install -y git
@@ -57,7 +62,7 @@ docker images
 docker run -d --name=redis redis
 ```
 
-- Run a Docker container from the voting app image ➜ The voting website is now live:
+- Run a Docker container from the voting app image ➜ The voting website is now live via port 8080:
 ```
 docker run -d -p 8080:80 --link redis:redis voting-app
 ```
@@ -93,12 +98,21 @@ cd ../result
 docker build . -t result-app
 ```
 
-- Run a Docker container from the result app image ➜ The result website is now live:
+- Run a Docker container from the result app image ➜ The result website is now live via port 8081:
 ```
 docker run -d -p 8081:80 --link db:db result-app
 ```
 
 ## 🐳 2. Docker Compose
+
+Instead of running these above Docker commands one by one. We can use docker compose which allow us to define and run multi-container Docker applications at once.
+
+
+- First, let's stop and remove all containers so we can start from scratch:
+```
+docker kill $(docker ps -q)
+docker rm $(docker ps -a -q)
+```
 
 - Install Docker compose:
 ```
@@ -109,12 +123,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 - Check the version of docker compose:
 ```
 docker-compose version
-```
-
-- Stop and remove all containers:
-```
-docker kill $(docker ps -q)
-docker rm $(docker ps -a -q)
 ```
 
 - Create a "docker-compose.yml" file as following:
