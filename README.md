@@ -15,7 +15,7 @@ Indeed, this is a distributed application running across multiple Docker contain
 
 - To be updated...
 
-### Architecture ⚙️
+## Architecture ⚙️
 
 ![Architecture diagram](https://i.imgur.com/iVphAjP.png)
 
