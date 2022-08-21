@@ -3,15 +3,15 @@ A great sample application for docker & docker compose demonstration!
 
 Indeed, this is a distributed application running across multiple Docker containers.
 
-## 🏗️ Installation and Setup 
+## 🏗️ 0. Installation and Setup 
 
 - To be updated...
 
-## 🐳 Docker Step by Step 
+## 🐳 1. Docker Step by Step 
 
 - To be updated...
 
-## 🐳 Docker Compose
+## 🐳 2. Docker Compose
 
 - To be updated...
 
