@@ -8,4 +8,4 @@ A great sample application for docker & docker compose demonstration!
 - To be updated...
 
 ## Reference 
-- Mofified and simplified based on the official Docker sample voting app (https://github.com/dockersamples/example-voting-app)
+- Modified and simplified based on the official Docker sample voting app (https://github.com/dockersamples/example-voting-app)
