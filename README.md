@@ -178,3 +178,6 @@ docker-compose up
 
 ## 💡 Reference 
 - Modified and simplified based on the official Docker sample voting app (https://github.com/dockersamples/example-voting-app)
+
+## 🏆 Author
+- Huynh Nguyen Minh Thong (Tom Huynh) - tomhuynhsg@gmail.com
