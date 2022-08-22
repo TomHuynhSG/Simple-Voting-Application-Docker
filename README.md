@@ -1,4 +1,13 @@
 # Simple Voting Application 🗳️
+
+<p align="center">
+    <img src="https://i.imgur.com/b9iYVtC.png" width=900>
+<p>
+
+<p align="center">"Five Docker Containers! Perfectly Balanced, As All Things Should Be!"</p>
+
+---
+
 A great sample application for docker & docker compose demonstration!
 
 Indeed, this is a distributed application running across multiple Docker containers.
