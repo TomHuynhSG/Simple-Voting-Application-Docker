@@ -6,7 +6,6 @@ Indeed, this is a distributed application running across multiple Docker contain
 ## 🏗️ 0. Installation and Setup 
 
 - Make sure the port numbers below as allowed in your host machine for this application:
-    - 80
     - 8080
     - 8081
 
