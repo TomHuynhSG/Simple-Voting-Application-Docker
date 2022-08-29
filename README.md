@@ -1,4 +1,13 @@
 # Simple Voting Application 🗳️
+
+<p align="center">
+    <img src="https://i.imgur.com/b9iYVtC.png" width=900>
+<p>
+
+<p align="center">"Five Docker Containers! Perfectly Balanced, As All Things Should Be!"</p>
+
+---
+
 A great sample application for docker & docker compose demonstration!
 
 Indeed, this is a distributed application running across multiple Docker containers.
@@ -6,7 +15,6 @@ Indeed, this is a distributed application running across multiple Docker contain
 ## 🏗️ 0. Installation and Setup 
 
 - Make sure the port numbers below as allowed in your host machine for this application:
-    - 80
     - 8080
     - 8081
 
@@ -178,11 +186,11 @@ docker-compose up
 
 ![Architecture diagram](https://i.imgur.com/iVphAjP.png)
 
-* A front-end web app in [Python](/vote) or [ASP.NET Core](/vote/dotnet) which lets you vote between two options
-* A [Redis](https://hub.docker.com/_/redis/) or [NATS](https://hub.docker.com/_/nats/) queue which collects new votes
-* A [.NET Core](/worker/src/Worker), [Java](/worker/src/main) or [.NET Core 2.1](/worker/dotnet) worker which consumes votes and stores them in…
-* A [Postgres](https://hub.docker.com/_/postgres/) or [TiDB](https://hub.docker.com/r/dockersamples/tidb/tags/) database backed by a Docker volume
-* A [Node.js](/result) or [ASP.NET Core SignalR](/result/dotnet) webapp which shows the results of the voting in real time
+* A front-end web app (Flask) in [Python](/vote) which lets you vote between two options.
+* A [Redis](https://hub.docker.com/_/redis/) queue which collects new votes.
+* A [.NET Core 3.1](/worker/src/Worker), [Java](/worker/src/main) worker which consumes votes and stores them in Postgres databased container.
+* A [Postgres](https://hub.docker.com/_/postgres/) database.
+* A [Node.js](/result) webapp which shows the results of the voting in real time.
 
 ## 💡 Reference 
 - Modified and simplified based on the official Docker sample voting app (https://github.com/dockersamples/example-voting-app)
