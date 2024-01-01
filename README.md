@@ -1,5 +1,8 @@
 # Simple Voting Application 🗳️
-
+<p align="center">
+    <img src="https://i.imgur.com/gHy6lFw.png" width=900>
+<p>
+    
 <p align="center">
     <img src="https://i.imgur.com/b9iYVtC.png" width=900>
 <p>
