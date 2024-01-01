@@ -187,7 +187,7 @@ docker-compose up
 
 ## ⚙️ Architecture 
 
-![Architecture diagram](https://i.imgur.com/iVphAjP.png)
+![Architecture diagram](https://i.imgur.com/ga6vC51.png)
 
 * A front-end web app (Flask) in [Python](/vote) which lets you vote between two options.
 * A [Redis](https://hub.docker.com/_/redis/) queue which collects new votes.
