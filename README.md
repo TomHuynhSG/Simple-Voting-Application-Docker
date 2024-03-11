@@ -7,7 +7,7 @@
     <img src="https://i.imgur.com/b9iYVtC.png" width=900>
 <p>
 
-<p align="center">"Five Docker Containers! Perfectly Balanced, As All Things Should Be!"</p>
+<p align="center">"Five Docker Containers! Perfectly Balanced, As All Things Should Be!" - DevOps Thanos</p>
 
 ---
 
