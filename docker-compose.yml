@@ -1,29 +1,28 @@
-version: "3"
 services:
   redis:
     image: redis
 
   db:
-   image: postgres:9.4
-   environment:
-    POSTGRES_PASSWORD: "postgres"
+    image: postgres:9.4
+    environment:
+      POSTGRES_PASSWORD: "postgres"
 
   vote:
     image: voting-app
     ports:
-      - 8080:80
-    links:
+      - "8080:80" # Expose the vote service on port 8080 (http://<EC2_IP>:8080)
+    depends_on:
       - redis
 
   worker:
     image: worker-app
-    links:
+    depends_on:
       - db
       - redis
 
   result:
     image: result-app
     ports:
-      - 8081:80
-    links:
+      - "8081:80" # Expose the result service on port 8081 (http://<EC2_IP>:8081)
+    depends_on:
       - db

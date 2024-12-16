@@ -1,7 +1,7 @@
 # Using official python runtime base image
 FROM python:3.9-slim
 
-# add curl for healthcheck
+# Add curl for healthcheck
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     curl \
@@ -10,7 +10,7 @@ RUN apt-get update \
 # Set the application directory
 WORKDIR /app
 
-# Install our requirements.txt
+# Install dependencies from requirements.txt
 COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
