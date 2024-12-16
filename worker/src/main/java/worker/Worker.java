@@ -1,5 +1,6 @@
 package worker;
 
+// Import necessary libraries
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import java.sql.*;
@@ -8,11 +9,13 @@ import org.json.JSONObject;
 class Worker {
   public static void main(String[] args) {
     try {
+      // Connect to Redis and PostgreSQL
       Jedis redis = connectToRedis("redis");
       Connection dbConn = connectToDB("db");
 
       System.err.println("Watching vote queue");
 
+      // Continuously process votes from the Redis queue
       while (true) {
         String voteJSON = redis.blpop(0, "votes").get(1);
         JSONObject voteData = new JSONObject(voteJSON);
@@ -28,6 +31,7 @@ class Worker {
     }
   }
 
+  // Update the vote in the database
   static void updateVote(Connection dbConn, String voterID, String vote) throws SQLException {
     PreparedStatement insert = dbConn.prepareStatement(
       "INSERT INTO votes (id, vote) VALUES (?, ?)");
@@ -37,6 +41,7 @@ class Worker {
     try {
       insert.executeUpdate();
     } catch (SQLException e) {
+      // If insert fails, update the existing vote
       PreparedStatement update = dbConn.prepareStatement(
         "UPDATE votes SET vote = ? WHERE id = ?");
       update.setString(1, vote);
@@ -45,6 +50,7 @@ class Worker {
     }
   }
 
+  // Connect to Redis with retry logic
   static Jedis connectToRedis(String host) {
     Jedis conn = new Jedis(host);
 
@@ -62,11 +68,11 @@ class Worker {
     return conn;
   }
 
+  // Connect to PostgreSQL with retry logic
   static Connection connectToDB(String host) throws SQLException {
     Connection conn = null;
 
     try {
-
       Class.forName("org.postgresql.Driver");
       String url = "jdbc:postgresql://" + host + "/postgres";
 
@@ -79,6 +85,7 @@ class Worker {
         }
       }
 
+      // Create the votes table if it doesn't exist
       PreparedStatement st = conn.prepareStatement(
         "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL)");
       st.executeUpdate();
@@ -92,6 +99,7 @@ class Worker {
     return conn;
   }
 
+  // Sleep for the specified duration
   static void sleep(long duration) {
     try {
       Thread.sleep(duration);
